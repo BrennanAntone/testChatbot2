@@ -3,7 +3,9 @@
 # To close: control C
 # right click in terminal window
 
-# Example use of URL embedding
+# V3: adding
+
+# Example use of parameters embedded through url
 # https://brennanantone-testchatbot2-chatbot2-aqz2vq.streamlit.app/?username=Noshir&userid=789
 # username is for display on the webpage
 # userid is for storage of messages in a database
@@ -14,9 +16,25 @@ import openai
 import streamlit as st
 # import streamlit_chat
 from streamlit_chat import message
+import calendar
+# core python module
+from datetime import datetime # core python module
+import database as db # local import
 
 openai.api_key = st.secrets['OPENAI_SECRET']
 #openai.api_key = OPENAI_SECRET
+
+# -------------- SETTINGS --------------
+incomes = ["Salary", "Blog", "Other Income"]
+expenses = ["Rent", "Utilities", "Groceries", "Car", "Other Expenses", "Saving"]
+currency = "USD"
+page_title = "Income and Expense Tracker"
+page_icon = ":money_with_wings:"  # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
+layout = "centered"
+# --------------------------------------
+
+st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
+st.title(page_title + " " + page_icon)
 
 
 def get_param(param_name):
