@@ -11,6 +11,7 @@ from streamlit_chat import message
 
 openai.api_key = st.secrets["OPENAI_SECRET"]
 
+
 def generate_response(prompt):
     completions = openai.Completion.create(
         engine="text-davinci-003",
@@ -20,8 +21,8 @@ def generate_response(prompt):
         stop=None,
         temperature=0.5,
     )
-    message = completions.choices[0].text
-    return message
+    ai_message = completions.choices[0].text
+    return ai_message
 
 
 # Creating the chatbot interface
