@@ -63,6 +63,7 @@ userid = get_param('userid') # Get from url
 
 # Creating the chatbot interface
 # page_title = "Vero: An AI teammate for " + str(username)
+st.set_page_config(page_icon=page_icon)
 # st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
 st.title(page_title + " " + page_icon)
 st.write('This version of Vero has been personalized with knowledge and speech patterns designed to assist you on ' +
