@@ -40,8 +40,8 @@ def get_param(param_name):
     try:
         return query_params[param_name][0]
     except:
-        st.write('Parameter is missing')
-        return False
+        #st.write('Parameter is missing')
+        return "You"
 
 
 def generate_response(prompt):
