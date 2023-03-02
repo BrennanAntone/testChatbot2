@@ -39,7 +39,8 @@ def generate_response(prompt):
 
 # Creating the chatbot interface
 userid = get_param('userid') # Get from url
-st.title("Vero: Your AI teammate for User" + userid)
+mytitle = "Vero: Your AI teammate for User" +  str(userid)
+st.title("Vero: Your AI teammate for User" + mytitle)
 
 # Storing the chat
 if 'generated' not in st.session_state:
