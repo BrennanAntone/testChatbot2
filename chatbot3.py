@@ -33,6 +33,15 @@ page_icon = ":busts_in_silhouette:"  # emojis: https://www.webfx.com/tools/emoji
 layout = "centered"
 # --------------------------------------
 
+# --- HIDE STREAMLIT STYLE ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 def get_param(param_name):
     # Get parameter from a url
@@ -64,7 +73,7 @@ userid = get_param('userid') # Get from url
 # Creating the chatbot interface
 page_title = "Vero: An AI teammate for " + str(username)
 # st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
-st.title(page_title + " " + page_icon)
+st.title(page_icon + " " + page_title)
 st.write('This version of Vero has been personalized with knowledge and speech patterns designed to assist you on ' +
          'brainstorming and creative thinking tasks.')
 
