@@ -3,6 +3,9 @@
 # To close: control C
 # right click in terminal window
 
+# Example use of URL embedding
+
+
 # Import the libraries
 import openai
 import streamlit as st
@@ -38,9 +41,12 @@ def generate_response(prompt):
 
 
 # Creating the chatbot interface
+username = get_param('username')
 userid = get_param('userid') # Get from url
-mytitle = "Vero: Your AI teammate for User" +  str(userid)
-st.title("Vero: Your AI teammate for User" + mytitle)
+my_title = "Vero: An AI teammate for " + str(username)
+st.title(my_title)
+st.write('This version of Vero has been personalized with knowledge and speech patterns designed to assist you on' +
+         'brainstorming and creative thinking tasks.')
 
 # Storing the chat
 if 'generated' not in st.session_state:
@@ -52,7 +58,7 @@ if 'past' not in st.session_state:
 
 def get_text():
     # Gets text input by the user
-    input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+    input_text = st.text_input("You: ", "Hello Vero, are you ready to collaborate?", key="input")
     return input_text
 
 
