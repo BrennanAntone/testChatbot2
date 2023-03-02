@@ -9,8 +9,8 @@ import streamlit as st
 # import streamlit_chat
 from streamlit_chat import message
 
-#openai.api_key = st.secrets["OPENAI_SECRET"]
-openai.api_key = OPENAI_SECRET
+openai.api_key = st.secrets['OPENAI_SECRET']
+#openai.api_key = OPENAI_SECRET
 
 def generate_response(prompt):
     completions = openai.Completion.create(
