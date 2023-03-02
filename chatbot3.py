@@ -6,7 +6,7 @@
 # V3: adding
 
 # Example use of parameters embedded through url
-# https://brennanantone-testchatbot2-chatbot2-aqz2vq.streamlit.app/?username=Noshir&userid=789
+# https://brennanantone-testchatbot2-chatbot3-vzwasy.streamlit.app/?username=Noshir&userid=789
 # username is for display on the webpage
 # userid is for storage of messages in a database
 
@@ -28,13 +28,10 @@ openai.api_key = st.secrets['OPENAI_SECRET']
 incomes = ["Salary", "Blog", "Other Income"]
 expenses = ["Rent", "Utilities", "Groceries", "Car", "Other Expenses", "Saving"]
 currency = "USD"
-page_title = "Income and Expense Tracker"
-page_icon = ":money_with_wings:"  # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
+page_title = "Vero: Creative AI"
+page_icon = ":busts_in_silhouette:"  # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 layout = "centered"
 # --------------------------------------
-
-st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
-st.title(page_title + " " + page_icon)
 
 
 def get_param(param_name):
@@ -60,12 +57,14 @@ def generate_response(prompt):
     ai_message = completions.choices[0].text
     return ai_message
 
-
-# Creating the chatbot interface
+# Get parameters
 username = get_param('username')
 userid = get_param('userid') # Get from url
-my_title = "Vero: An AI teammate for " + str(username)
-st.title(my_title)
+
+# Creating the chatbot interface
+page_title = "Vero: An AI teammate for " + str(username)
+st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
+st.title(page_title + " " + page_icon)
 st.write('This version of Vero has been personalized with knowledge and speech patterns designed to assist you on ' +
          'brainstorming and creative thinking tasks.')
 
