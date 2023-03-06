@@ -12,14 +12,14 @@ deta = Deta(DETA_KEY)
 db = deta.Base("chat_logs")
 
 
-# def insert_period(period, incomes, expenses, comment):
-#     """Returns the report on a successful creation, otherwise raises an error"""
-#     return db.put({"key": period, "incomes": incomes, "expenses": expenses, "comment": comment})
+def insert_period(period, incomes, expenses, comment):
+     """Returns the report on a successful creation, otherwise raises an error"""
+     return db.put({"key": period, "incomes": incomes, "expenses": expenses, "comment": comment})
 
 
-def insert_message(src, msg):
+def insert_message(uid, src, msg):
     """Returns the report on a successful creation, otherwise raises an error"""
-    return db.put({"uid": userid, "type": src, "ts": str(datetime.now()), "msg": msg})
+    return db.put({"uid": uid, "type": src, "ts": str(datetime.now()), "msg": msg})
 
 # def fetch_all_periods():
 #     """Returns a dict of all periods"""

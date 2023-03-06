@@ -66,7 +66,9 @@ def generate_response(prompt):
     return ai_message
 
 # Get parameters
+username = " "
 username = get_param('username')
+userid = 9999
 userid = get_param('userid') # Get from url
 
 # Creating the chatbot interface
@@ -94,10 +96,10 @@ user_input = get_text()
 
 if user_input:
     # store user input in db
-    db.insert_message('user', user_input)
+    db.insert_message(userid, 'user', user_input)
     output = generate_response(user_input)
     # store generated response in db
-    db.insert_message('ai', output)
+    db.insert_message(userid, 'ai', output)
     # store the output
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
