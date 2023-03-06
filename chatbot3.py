@@ -18,7 +18,6 @@ import streamlit as st
 from streamlit_chat import message
 import calendar
 # core python module
-from datetime import datetime # core python module
 import database as db # local import
 
 openai.api_key = st.secrets['OPENAI_SECRET']
@@ -94,10 +93,15 @@ def get_text():
 user_input = get_text()
 
 if user_input:
+    # store user input in db
+    db.insert_message('user', user_input)
     output = generate_response(user_input)
+    # store generated response in db
+    db.insert_message('ai', output)
     # store the output
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
+
 
 if st.session_state['generated']:
 
